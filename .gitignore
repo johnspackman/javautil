@@ -7,3 +7,5 @@
 .idea
 .ruby-version
 *.iml
+/eclipse-output/
+/build
