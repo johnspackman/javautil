@@ -13,7 +13,7 @@
 
 	<target name="compile">
 		<mkdir dir="build/classes"/>
-		<javac srcdir="src/main/java" destdir="build/classes">
+		<javac target="14" source="14" debug="true" srcdir="src/main/java" destdir="build/classes">
 			<classpath refid="classpath" />
 		</javac>
 		<copy todir="build/classes" overwrite="false">
@@ -24,7 +24,10 @@
 	</target>
 
 	<target name="jar" depends="compile">
-		<jar destfile="build/my-javautil.jar" basedir="build/classes" />
+		<jar destfile="build/my-javautil.jar" basedir="build/classes">
+			<fileset dir="build/classes" />
+			<fileset dir="src/main/java" includes="**/*.java"/>
+		</jar>
 	</target>
 
 </project>

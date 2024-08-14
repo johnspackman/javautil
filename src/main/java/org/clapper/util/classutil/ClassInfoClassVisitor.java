@@ -134,6 +134,20 @@ class ClassInfoClassVisitor extends ClassVisitor
                                         signature, exceptions);
     }
 
+    @Override
+    public void visitNestHost(String nestHost) {
+        if (api < Opcodes.ASM7)
+            return;
+        super.visitNestHost(nestHost);
+    }
+
+    @Override
+    public void visitNestMember(String nestMember) {
+        if (api < Opcodes.ASM7)
+            return;
+        super.visitNestMember(nestMember);
+    }
+
     /**
      * Get the location (the jar file, zip file or directory) containing
      * the classes processed by this visitor.
